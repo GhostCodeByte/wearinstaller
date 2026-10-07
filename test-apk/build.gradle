@@ -1,0 +1,19 @@
+plugins { id 'com.android.application' }
+android { namespace 'dev.ghostcode.wearinstaller.testpayload'; compileSdk 35
+ defaultConfig { applicationId 'dev.ghostcode.wearinstaller.testpayload'; minSdk 30; targetSdk 35; versionCode 1; versionName '1.0' }
+ sourceSets.main.assets.srcDir layout.buildDirectory.dir('generated/testAssets')
+}
+// A real multi-megabyte transfer exercises chunking and progress without checking binary fixtures into Git.
+tasks.register('generateTestPayload') {
+ def payload = layout.buildDirectory.file('generated/testAssets/payload.bin')
+ outputs.file(payload)
+ doLast {
+  payload.get().asFile.parentFile.mkdirs()
+  def random = new Random(20261007L)
+  payload.get().asFile.withOutputStream { stream ->
+   byte[] bytes = new byte[32768]
+   128.times { random.nextBytes(bytes); stream.write(bytes) }
+  }
+ }
+}
+tasks.named('preBuild').configure { dependsOn 'generateTestPayload' }
