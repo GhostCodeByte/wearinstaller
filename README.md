@@ -6,8 +6,8 @@ Zwei native Android-Apps: Das Handy installiert eine ausgewählte APK direkt üb
 
 ## Installation und Bedienung
 
-1. `wearinstaller-phone-1.0.0.apk` auf dem Handy installieren.
-2. `wearinstaller-watch-1.0.0.apk` einmal auf der Uhr installieren, etwa über einen Computer mit ADB. Die Uhr-App muss bereits vorhanden sein, damit das Handy die Uhr erkennt.
+1. `wearinstaller-phone-1.1.0.apk` auf dem Handy installieren.
+2. `wearinstaller-watch-1.1.0.apk` auf der Uhr installieren, etwa über einen Computer mit ADB. Die Uhr-App muss bereits vorhanden sein, damit das Handy die Uhr erkennt. Bestehende Release-Installationen lassen sich mit demselben Signing-Key aktualisieren.
 3. Die Uhr mit der offiziellen Begleit-App mit dem Handy verbinden. Beide Geräte ins gleiche WLAN bringen.
 4. Wear Installer auf dem Handy öffnen. Die Uhr wird automatisch erkannt. Die Uhr-App kann auf Anfragen auch im Hintergrund antworten.
 5. Beim ersten Mal auf der Uhr **Einstellungen → Entwickleroptionen → Wireless Debugging → Gerät mit Kopplungscode koppeln** öffnen. Auf englischen Uhren heißt der letzte Eintrag „Pair new device“.
@@ -41,7 +41,9 @@ NSD sucht nach `_adb-tls-connect._tcp` und `_adb-tls-pairing._tcp`. Aufgelöste 
 
 Die RSA-ADB-Identität liegt AES-GCM-verschlüsselt im privaten `no_backup`-Verzeichnis des Handys. Der nicht exportierbare AES-Schlüssel liegt im Android Keystore. Backup ist deaktiviert. Der Pairing-Code wird nicht gespeichert. Die Uhr enthält keine ADB-Bibliothek, führt keine Shell-Kommandos aus und installiert keine APKs.
 
-Die Handy-App kopiert die File-Picker-Datei in ihren privaten Cache, prüft den APK-Container, überträgt sie in Blöcken über ADB `sync:`, führt auf `adbd` `pm install -r` aus und prüft die Erfolgsmeldung zusammen mit dem Exit-Status. Die temporäre Datei auf der Uhr wird anschließend entfernt. Die Installation hat eine Grenze von drei Minuten. Eine unterbrochene Installation wird nicht automatisch wiederholt.
+Die Handy-App kopiert die File-Picker-Datei in ihren privaten Cache, prüft den APK-Container und überträgt sie direkt an Androids Paketinstaller: `exec:cmd package install -r -S <Dateigröße>`. Die Uhr liest exakt die angegebene Anzahl von Bytes aus dem ADB-Stream. Eine separate APK unter `/data/local/tmp` sowie der anschließende zusätzliche Kopierschritt entfallen. Android verwaltet seine internen Installationsdateien weiterhin selbst. Erfolg wird nur bei `Success` zusammen mit Exit-Status 0 gemeldet. Eine unterbrochene Installation wird nicht automatisch wiederholt.
+
+Die Übertragung verwendet 256-KiB-Blöcke, auch wenn die Eingabe nur kurze Leseabschnitte liefert. Der ADB-Stream zerlegt die Ausgabe bei Bedarf gemäß dem von der Uhr gemeldeten Paketlimit und wartet vor jedem weiteren WRTE auf dessen Bestätigung. Dadurch entfallen die bisherigen separaten 4-KiB-Schreibvorgänge und SYNC-Header. Die Anzeige nennt übertragene MiB und die durchschnittliche Übertragungsrate; 90 % bedeutet, dass die APK gesendet wurde, 93 % das Warten auf Androids abschließendes Installationsergebnis. Die Übertragung wird nach 45 Sekunden ohne Fortschritt abgebrochen, mit einer Prüfauflösung von fünf Sekunden. Solange Daten übertragen werden, gilt keine feste Gesamtgrenze. Nach der Übertragung darf Android bis zu drei Minuten für das abschließende Installationsergebnis benötigen.
 
 ## Bauen und prüfen
 
@@ -73,7 +75,7 @@ keyPassword=dein-passwort
 
 Auf dem ursprünglichen Build-Host liegen Keystore und Passwort außerhalb des Repositories unter `~/.local/share/wearinstaller/signing/`. Diese Dateien sicher aufbewahren: Ohne denselben Signing-Key sind später keine Updates der Release-APKs möglich. Das Repository und die Release-Assets enthalten keine privaten Schlüssel.
 
-`scripts/build-release.sh` führt Tests und Release-Lint aus und erzeugt beide signierten APKs sowie `SHA256SUMS` unter `artifacts/v1.0.0/`. Die GitHub-Actions-Konfiguration baut und prüft Debug-APKs ohne Release-Zugangsdaten.
+`scripts/build-release.sh` führt Tests und Release-Lint aus und erzeugt beide signierten APKs sowie `SHA256SUMS` unter `artifacts/v1.1.0/`. Die GitHub-Actions-Konfiguration baut und prüft Debug-APKs ohne Release-Zugangsdaten.
 
 ## Tests und Quellen
 

@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.ConnectException;
 import java.net.Socket;
 import java.security.PrivateKey;
 import java.security.cert.Certificate;
@@ -514,15 +513,12 @@ public class AdbConnection implements Closeable {
         // Send OPEN
         sendPacket(AdbProtocol.generateOpen(localId, Objects.requireNonNull(destination)));
 
-        // Wait for the connection thread to receive the OKAY
-        synchronized (stream) {
-            stream.wait();
-        }
-
-        // Check if the OPEN request was rejected
-        if (stream.isClosed()) {
+        // A fast peer can reply before this thread starts waiting.
+        try {
+            stream.awaitOpen();
+        } catch (IOException | InterruptedException e) {
             mOpenedStreams.remove(localId);
-            throw new ConnectException("Stream open actively rejected by remote peer.");
+            throw e;
         }
 
         return stream;

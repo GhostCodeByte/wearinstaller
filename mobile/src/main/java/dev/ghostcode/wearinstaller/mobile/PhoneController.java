@@ -9,6 +9,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 final class PhoneController implements AdbDiscovery.Listener, MessageClient.OnMessageReceivedListener {
     interface Observer { void changed(); }
@@ -173,11 +174,23 @@ final class PhoneController implements AdbDiscovery.Listener, MessageClient.OnMe
         if(busy || !adbConnected || adb==null || apk==null) return;
         busy=true; progress=0; stage="Installation vorbereiten …"; notifyUi();
         io.github.muntashirakon.adb.AdbConnection connection=adb.getAdbConnection();
-        ScheduledFuture<?> timeout=timer.schedule(() -> { try { if(connection!=null) connection.close(); } catch(Exception ignored) {} },3,TimeUnit.MINUTES);
         worker.execute(() -> {
+            InstallationTimeout deadline=new InstallationTimeout(SystemClock.elapsedRealtime());
+            AtomicBoolean timedOut=new AtomicBoolean();
+            ScheduledFuture<?> timeout=timer.scheduleWithFixedDelay(() -> {
+                if(deadline.expired(SystemClock.elapsedRealtime()) && timedOut.compareAndSet(false,true)) {
+                    try { if(connection!=null) connection.close(); } catch(Exception ignored) {}
+                }
+            },5,5,TimeUnit.SECONDS);
             String error=null;
-            try { new ApkInstaller(adb).install(apk,(percent,text) -> main.post(() -> { progress=percent; stage=text; notifyUi(); })); }
-            catch(Exception e) { error=e instanceof IOException && e.getMessage()!=null && e.getMessage().startsWith("Installation fehlgeschlagen") ? e.getMessage() : "Installation abgebrochen. Prüfe WLAN, Wireless Debugging und freien Speicher auf der Uhr. "+(e.getMessage()==null?"":e.getMessage()); }
+            try { new ApkInstaller(adb).install(apk,(percent,text) -> {
+                deadline.progress(percent,SystemClock.elapsedRealtime());
+                main.post(() -> { if(!closed) { progress=percent; stage=text; notifyUi(); } });
+            }); }
+            catch(Exception e) {
+                error=timedOut.get() ? deadline.message()
+                        : e instanceof IOException && e.getMessage()!=null && e.getMessage().startsWith("Installation fehlgeschlagen") ? e.getMessage() : "Installation abgebrochen. Prüfe WLAN, Wireless Debugging und freien Speicher auf der Uhr. "+(e.getMessage()==null?"":e.getMessage());
+            }
             finally { timeout.cancel(false); }
             String result=error;
             main.post(() -> {
