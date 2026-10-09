@@ -76,3 +76,19 @@ Der finale Installationsweg ersetzt die oben beschriebene SYNC-Zwischenstufe dur
 **23 JVM-Tests bestanden**, einschließlich neuer Prüfungen für den vollständigen Streaming-Ablauf, kurze InputStream-Leseabschnitte, verkürzte oder gewachsene Quelldateien, fehlende Erfolgsbestätigung und Installationsfehler ohne automatischen Wiederholungsversuch. Die simulierte 4-MiB-Datei plus 17 Byte benötigt 17 Ausgabeschreibvorgänge. Das ist eine Protokollprüfung, keine WLAN-Zeitmessung. Zwei weitere ADB-Tests prüfen, dass eine vorzeitig empfangene OPEN-Bestätigung oder Ablehnung keinen unbegrenzten Wartezustand auslöst.
 
 Das Release-Skript hat alle JVM-Tests, Release-Lint für Handy und Uhr und beide signierten Release-Builds erfolgreich ausgeführt. Beide Apps tragen Version `1.1.0` / Versionscode `2`. Der zusätzliche Geräte-Durchlauf war nicht möglich: Der gemeinsame Emulator-Pool war bei beiden Reservierungsversuchen ausgelastet. Für 1.1.0 wird daher weder ein neuer praktischer Wear-OS-Test noch ein gemessener Geschwindigkeitsgewinn gegenüber Wear Installer 2 behauptet.
+
+## Release 1.2.0 — Installation über die Uhr-Verbindung
+
+Getestet auf einem Handy-Emulator (`sdk_gphone64_x86_64`) und einem Wear-Emulator (`sdk_gwear_x86_64`), gekoppelt über die offizielle Begleit-App. Auf beiden Emulatoren waren die signierten Release-APKs installiert; ihre SHA-256-Werte stimmen exakt mit `artifacts/v1.2.0/SHA256SUMS` überein. Die Data-Layer-Verbindung der Emulatoren läuft über weitergeleitete TCP-Ports, nicht über Bluetooth.
+
+| Ablauf | Ergebnis |
+| --- | --- |
+| Neue App über Uhr-Verbindung, WLAN an beiden Geräten aus, `adb_wifi_enabled=0` | Übertragung vollständig, Uhr fordert einmalig „Installationen erlauben“ an. Nach Erlaubnis öffnet die Uhr-App den Android-Installationsdialog; nach **Installieren** meldet das Handy „Erfolgreich auf der Uhr installiert ✓“. |
+| Update derselben App über Uhr-Verbindung | Übertragung in 6,8 s, Status `ready → writing → installing → success` ohne Dialog. `installerPackageName=dev.ghostcode.wearinstaller`. SHA-256 der installierten `base.apk` stimmt mit der Test-APK überein. |
+| Umschalten auf „Über ADB · wie bisher“, WLAN und Wireless Debugging an | ADB verbindet automatisch mit der bestehenden Kopplung. Erstinstallation der vorher entfernten Test-App erfolgreich, ohne Dialog auf der Uhr; SHA-256 stimmt. |
+
+**30 JVM-Tests bestanden**, darunter neue Prüfungen des APK-Übertragungsformats (Header, Größenlimit, Prüfsumme, verkürzte und manipulierte Daten). Release-Lint für Handy und Uhr erfolgreich. Beide APKs tragen Version `1.2.0` / Versionscode `3` und denselben Release-Signer wie 1.1.0.
+
+Belege: [Screenshots, Logs und Prüfsummen](release-1.2-evidence/).
+
+Nicht getestet: physische Uhren, echte Bluetooth-Übertragung, große APKs, Standby während der Übertragung und mehrere Uhren. Ob Updates ohne Dialog laufen, entscheidet Android; das gilt nur für Apps, die Wear Installer selbst installiert hat, und nicht auf allen Herstellerversionen garantiert.

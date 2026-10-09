@@ -1,0 +1,29 @@
+plugins { id 'com.android.application' }
+android {
+ buildFeatures { buildConfig true }
+ namespace 'dev.ghostcode.wearinstaller.mobile'; compileSdk 35
+ defaultConfig { applicationId 'dev.ghostcode.wearinstaller.transportprobe'; minSdk 30; targetSdk 35; versionCode 1; versionName 'lab-1' }
+ flavorDimensions 'device'
+ productFlavors { phone { dimension 'device' }; watch { dimension 'device' } }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+ sourceSets.main.java.srcDir layout.buildDirectory.dir('generated/adbSources')
+ sourceSets.main.assets.srcDir layout.buildDirectory.dir('generated/payloadAssets')
+}
+tasks.register('copyAdbSources', Sync) {
+ from rootProject.file('mobile/src/main/java')
+ include '**/AdbIdentity.java', '**/ApkInstaller.java', '**/Streams.java', '**/AdbDiscovery.java'
+ into layout.buildDirectory.dir('generated/adbSources')
+}
+tasks.register('copyPayload', Copy) {
+ dependsOn ':test-apk:assembleDebug'
+ from rootProject.file('test-apk/build/outputs/apk/debug/test-apk-debug.apk')
+ rename { 'payload.apk' }
+ into layout.buildDirectory.dir('generated/payloadAssets')
+}
+tasks.named('preBuild').configure { dependsOn 'copyAdbSources', 'copyPayload' }
+dependencies {
+ implementation project(':common')
+ implementation project(':libadb')
+ implementation 'org.conscrypt:conscrypt-android:2.5.3'
+ implementation 'org.bouncycastle:bcpkix-jdk15to18:1.81'
+}

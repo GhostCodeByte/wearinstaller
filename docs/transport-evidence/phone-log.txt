@@ -1,0 +1,64 @@
+--------- beginning of main
+10-08 20:55:08.201  3712  3712 I TransportProbe: READY watch=false sdk=35 uid=10215 canInstall=false
+10-08 20:55:32.902  3712  4001 I TransportProbe: PEERS=[Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}]
+10-08 20:56:00.214  3712  4001 I TransportProbe: PEER=Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}
+10-08 20:56:06.686  3712  4001 I TransportProbe: CHANNEL_SENT bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6475
+10-08 20:56:06.868  3712  3712 I TransportProbe: REMOTE CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6586
+10-08 20:57:23.824  4210  4210 I TransportProbe: READY watch=false sdk=35 uid=10215 canInstall=false
+10-08 20:58:30.026  4210  4210 I TransportProbe: READY watch=false sdk=35 uid=10215 canInstall=false
+10-08 20:58:37.513  4210  4619 I TransportProbe: PEER=Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}
+10-08 20:58:37.915  4210  4619 I TransportProbe: PAIR_RESULT=true relay=true ms=843
+10-08 20:58:37.922  4210  4628 I TransportProbe: PIPE_IN=com.google.android.gms.wearable.ChannelIOException: Channel closed unexpectedly before stream was finished
+10-08 20:58:55.077  4210  4628 I TransportProbe: ADB_SHELL relay=false result=uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid),3012(readtracefs) context=u:r:shell:s0
+10-08 20:58:55.077  4210  4628 I TransportProbe: 34
+10-08 20:58:58.912  4210  4628 I TransportProbe: ADB_INSTALL_DONE relay=false
+10-08 20:58:59.025  4210  4628 I TransportProbe: ADB_INSTALL_OK relay=false bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=4175
+10-08 20:59:11.598  4210  4628 I TransportProbe: PEER=Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}
+10-08 20:59:12.217  4210  4628 I TransportProbe: ADB_SHELL relay=true result=uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid),3012(readtracefs) context=u:r:shell:s0
+10-08 20:59:12.217  4210  4628 I TransportProbe: 34
+10-08 21:01:44.883  4210  4628 I TransportProbe: ADB_INSTALL_DONE relay=true
+10-08 21:01:45.178  4210  4628 I TransportProbe: ADB_INSTALL_OK relay=true bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=153595
+10-08 21:01:45.185  4210  4629 I TransportProbe: PIPE_IN=com.google.android.gms.wearable.ChannelIOException: Channel closed unexpectedly before stream was finished
+10-08 21:05:31.077  5217  5217 I TransportProbe: READY watch=false sdk=35 uid=10215 canInstall=false
+10-08 21:05:35.615  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC, ip=192.168.172.233, port=37537] pairing=null
+10-08 21:05:47.359  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC, ip=192.168.172.233, port=37537] pairing=null
+10-08 21:05:59.361  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC, ip=192.168.172.233, port=37537] pairing=null
+10-08 21:06:01.396  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC (2), ip=192.168.172.233, port=45223] pairing=null
+10-08 21:06:09.327  5217  5400 I TransportProbe: ADB_SHELL relay=false result=uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid),3012(readtracefs) context=u:r:shell:s0
+10-08 21:06:09.327  5217  5400 I TransportProbe: 34
+10-08 21:06:11.361  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC (2), ip=192.168.172.233, port=45223] pairing=null
+10-08 21:06:11.380  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC, ip=192.168.172.233, port=37537] pairing=null
+10-08 21:06:12.954  5217  5400 I TransportProbe: ADB_INSTALL_DONE relay=false
+10-08 21:06:13.027  5217  5400 I TransportProbe: ADB_INSTALL_OK relay=false bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=4022
+10-08 21:06:23.366  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC (2), ip=192.168.172.233, port=45223] pairing=null
+10-08 21:06:23.384  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC, ip=192.168.172.233, port=37537] pairing=null
+10-08 21:06:35.377  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC (2), ip=192.168.172.233, port=45223] pairing=null
+10-08 21:06:35.395  5217  5217 I TransportProbe: DISCOVERY connect=Endpoint[serviceName=adb-EMULATOR37X1X11X0-hJ0uLC, ip=192.168.172.233, port=37537] pairing=null
+10-08 21:06:45.087  5217  5217 I TransportProbe: DISCOVERY connect=null pairing=null
+10-08 21:06:45.088  5217  5217 I TransportProbe: DISCOVERY connect=null pairing=null
+10-08 21:06:49.507  5217  5400 I TransportProbe: PEER=Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}
+10-08 21:06:55.968  5217  5400 I TransportProbe: CHANNEL_SENT bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6481
+10-08 21:06:56.144  5217  5217 I TransportProbe: REMOTE CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6584
+10-08 21:07:15.386  5217  5400 I TransportProbe: PEER=Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}
+10-08 21:07:21.785  5217  5400 I TransportProbe: CHANNEL_SENT bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6409
+10-08 21:07:21.971  5217  5217 I TransportProbe: REMOTE CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6543
+10-08 21:07:33.957  5217  5400 I TransportProbe: PEER=Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}
+10-08 21:07:40.368  5217  5400 I TransportProbe: CHANNEL_SENT bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6414
+10-08 21:07:40.543  5217  5217 I TransportProbe: REMOTE CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6554
+10-08 21:07:59.370  5217  5400 I TransportProbe: PEER=Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}
+10-08 21:07:59.443  5217  5657 I TransportProbe: PIPE_IN=com.google.android.gms.wearable.ChannelIOException: Channel closed unexpectedly before stream was finished
+10-08 21:08:11.423  5217  5400 E TransportProbe: FAILED
+10-08 21:08:11.423  5217  5400 E TransportProbe: java.io.IOException: ADB connect returned false
+10-08 21:08:11.423  5217  5400 E TransportProbe: 	at dev.ghostcode.wearinstaller.mobile.ProbeActivity.lambda$adbAction$18(ProbeActivity.java:167)
+10-08 21:08:11.423  5217  5400 E TransportProbe: 	at dev.ghostcode.wearinstaller.mobile.ProbeActivity.$r8$lambda$7DmDSX1BvEU2p5f9H0dYycNiPP8(Unknown Source:0)
+10-08 21:08:11.423  5217  5400 E TransportProbe: 	at dev.ghostcode.wearinstaller.mobile.ProbeActivity$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+10-08 21:08:11.423  5217  5400 E TransportProbe: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+10-08 21:08:11.423  5217  5400 E TransportProbe: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+10-08 21:08:11.423  5217  5400 E TransportProbe: 	at java.lang.Thread.run(Thread.java:1012)
+10-08 21:08:11.424  5217  5400 I TransportProbe: FAILED=java.io.IOException: ADB connect returned false
+10-08 21:09:21.261  5777  5777 I TransportProbe: READY watch=false sdk=35 uid=10215 canInstall=false
+10-08 21:09:26.680  5777  5878 I TransportProbe: PEER=Node{Agent_PixelWatch_34, id=f4d1e135, hops=1, isNearby=true}
+10-08 21:09:27.357  5777  5878 I TransportProbe: ADB_SHELL relay=true result=uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid),3012(readtracefs) context=u:r:shell:s0
+10-08 21:09:27.357  5777  5878 I TransportProbe: 34
+10-08 21:09:27.358  5777  5878 I TransportProbe: ADB_SHELL_OK relay=true ms=739
+10-08 21:09:27.369  5777  5891 I TransportProbe: PIPE_IN=com.google.android.gms.wearable.ChannelIOException: Channel closed unexpectedly before stream was finished

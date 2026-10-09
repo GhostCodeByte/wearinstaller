@@ -5,3 +5,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = 'WearInstaller'
 include ':common', ':mobile', ':wear', ':test-apk', ':libadb'
+// Opt-in laboratory app; never included in normal or release builds.
+if (providers.gradleProperty('transportProbe').isPresent()) {
+ include ':transport-probe'
+ project(':transport-probe').projectDir = file('experiments/transport-probe')
+}

@@ -1,0 +1,2 @@
+a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa  /data/app/~~p14SR3G0i5mR2PQ1BQo6QA==/dev.ghostcode.wearinstaller.testpayload-Qjt0uz4u3VwYpPKBdkZJkg==/base.apk
+a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa  test-apk/build/outputs/apk/debug/test-apk-debug.apk

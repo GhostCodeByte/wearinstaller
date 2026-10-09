@@ -1,0 +1,47 @@
+--------- beginning of main
+10-08 21:07:31.776  2963  2963 I TransportProbe: PACKAGE_STATUS=3 detail=INSTALL_FAILED_ABORTED: User rejected permissions
+10-08 21:07:39.973  2963  5699 I TransportProbe: CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6554
+10-08 21:07:39.977  2963  5699 I TransportProbe: PACKAGE_SESSION=92276455 canInstall=true
+10-08 21:07:40.016  2963  5699 I TransportProbe: PACKAGE_COMMITTED=92276455
+10-08 21:07:40.042  2963  2963 I TransportProbe: PACKAGE_STATUS=-1 detail=null
+10-08 21:07:56.079  2963  2963 I TransportProbe: PACKAGE_STATUS=0 detail=INSTALL_SUCCEEDED: Session installed
+10-08 21:07:58.882  2963  5699 E TransportProbe: FAILED
+10-08 21:07:58.882  2963  5699 E TransportProbe: java.net.ConnectException: failed to connect to /127.0.0.1 (port 45223) from /127.0.0.1 (port 53708) after 10000ms: isConnected failed: ECONNREFUSED (Connection refused)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at libcore.io.IoBridge.isConnected(IoBridge.java:347)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at libcore.io.IoBridge.connectErrno(IoBridge.java:237)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at libcore.io.IoBridge.connect(IoBridge.java:179)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:142)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:390)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:230)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:212)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.net.Socket.connect(Socket.java:646)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at dev.ghostcode.wearinstaller.mobile.ProbeActivity.receive(ProbeActivity.java:104)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at dev.ghostcode.wearinstaller.mobile.ProbeActivity.-$$Nest$mreceive(Unknown Source:0)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at dev.ghostcode.wearinstaller.mobile.ProbeActivity$1.lambda$onChannelOpened$0(ProbeActivity.java:28)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at dev.ghostcode.wearinstaller.mobile.ProbeActivity$1.$r8$lambda$9lLjMNBf59GEfRM8aKymeOre3g0(Unknown Source:0)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at dev.ghostcode.wearinstaller.mobile.ProbeActivity$1$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at java.lang.Thread.run(Thread.java:1012)
+10-08 21:07:58.882  2963  5699 E TransportProbe: Caused by: android.system.ErrnoException: isConnected failed: ECONNREFUSED (Connection refused)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	at libcore.io.IoBridge.isConnected(IoBridge.java:334)
+10-08 21:07:58.882  2963  5699 E TransportProbe: 	... 16 more
+10-08 21:07:58.883  2963  5699 I TransportProbe: FAILED=java.net.ConnectException: failed to connect to /127.0.0.1 (port 45223) from /127.0.0.1 (port 53708) after 10000ms: isConnected failed: ECONNREFUSED (Connection refused)
+10-08 21:09:26.180  2963  6675 I TransportProbe: RELAY_LOCAL_CONNECTED port=42871
+10-08 21:11:32.828  2963  7068 I TransportProbe: CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6586
+10-08 21:11:32.831  2963  7068 I TransportProbe: PACKAGE_SESSION=1755529819 canInstall=true
+10-08 21:11:32.897  2963  7068 I TransportProbe: PACKAGE_COMMITTED=1755529819
+10-08 21:11:32.924  2963  2963 I TransportProbe: PACKAGE_STATUS=-1 detail=null
+10-08 21:11:43.582  2963  2963 I TransportProbe: PACKAGE_STATUS=3 detail=INSTALL_FAILED_ABORTED: User rejected permissions
+10-08 21:13:38.031  7550  7550 I TransportProbe: READY watch=true sdk=34 uid=10115 canInstall=true
+10-08 21:13:46.571  7550  7610 I TransportProbe: CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6605
+10-08 21:13:46.576  7550  7610 I TransportProbe: PACKAGE_SESSION=797726974 canInstall=true
+10-08 21:13:46.659  7550  7610 I TransportProbe: PACKAGE_COMMITTED=797726974
+10-08 21:13:46.684  7550  7550 I TransportProbe: PACKAGE_STATUS=-1 detail=null
+10-08 21:14:08.156  7550  7550 I TransportProbe: PACKAGE_STATUS=3 detail=INSTALL_FAILED_ABORTED: User rejected permissions
+10-08 21:14:16.441  7550  7610 I TransportProbe: CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6508
+10-08 21:14:16.445  7550  7610 I TransportProbe: PACKAGE_SESSION=555507631 canInstall=true
+10-08 21:14:16.491  7550  7610 I TransportProbe: PACKAGE_COMMITTED=555507631
+10-08 21:14:16.522  7550  7550 I TransportProbe: PACKAGE_STATUS=-1 detail=null
+10-08 21:14:50.167  7550  7550 I TransportProbe: PACKAGE_STATUS=0 detail=INSTALL_SUCCEEDED: Session installed

@@ -1,0 +1,20 @@
+--------- beginning of main
+10-08 21:13:38.031  7550  7550 I TransportProbe: READY watch=true sdk=34 uid=10115 canInstall=true
+10-08 21:13:46.571  7550  7610 I TransportProbe: CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6605
+10-08 21:13:46.576  7550  7610 I TransportProbe: PACKAGE_SESSION=797726974 canInstall=true
+10-08 21:13:46.659  7550  7610 I TransportProbe: PACKAGE_COMMITTED=797726974
+10-08 21:13:46.684  7550  7550 I TransportProbe: PACKAGE_STATUS=-1 detail=null
+10-08 21:14:08.156  7550  7550 I TransportProbe: PACKAGE_STATUS=3 detail=INSTALL_FAILED_ABORTED: User rejected permissions
+10-08 21:14:16.441  7550  7610 I TransportProbe: CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6508
+10-08 21:14:16.445  7550  7610 I TransportProbe: PACKAGE_SESSION=555507631 canInstall=true
+10-08 21:14:16.491  7550  7610 I TransportProbe: PACKAGE_COMMITTED=555507631
+10-08 21:14:16.522  7550  7550 I TransportProbe: PACKAGE_STATUS=-1 detail=null
+10-08 21:14:50.167  7550  7550 I TransportProbe: PACKAGE_STATUS=0 detail=INSTALL_SUCCEEDED: Session installed
+10-08 21:16:14.123  8507  8507 I TransportProbe: READY watch=true sdk=34 uid=10122 canInstall=false
+10-08 21:16:17.207  8507  8507 I TransportProbe: CAN_REQUEST_INSTALLS=false
+10-08 21:16:17.211  8507  8507 I TransportProbe: UNKNOWN_SOURCES_HANDLER=ResolveInfo{7755be4 com.google.android.apps.wearable.settings/com.google.android.clockwork.settings.MainSettingsActivity m=0x208000 userHandle=UserHandle{0}}
+10-08 21:16:58.189  8507  8771 I TransportProbe: CHANNEL_RECEIVED bytes=4203273 sha256=a6c9600b17d3cf46a3d626ae0952f95e084b9cc8e4a2d73532e2ba0cb41cc7fa ms=6511
+10-08 21:16:58.195  8507  8771 I TransportProbe: PACKAGE_SESSION=321149277 canInstall=true
+10-08 21:16:58.241  8507  8771 I TransportProbe: PACKAGE_COMMITTED=321149277
+10-08 21:16:58.266  8507  8507 I TransportProbe: PACKAGE_STATUS=-1 detail=null
+10-08 21:17:06.282  8507  8507 I TransportProbe: PACKAGE_STATUS=0 detail=INSTALL_SUCCEEDED: Session installed

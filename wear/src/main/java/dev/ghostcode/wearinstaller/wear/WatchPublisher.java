@@ -33,7 +33,7 @@ final class WatchPublisher {
         try {
             String ip = wifiIp(c);
             JSONObject json = new JSONObject().put("deviceName",deviceName(c)).put("model",Build.MODEL)
-                    .put("ip",ip).put("api",Build.VERSION.SDK_INT).put("nonce",nonce);
+                    .put("ip",ip).put("api",Build.VERSION.SDK_INT).put("nonce",nonce).put("installerVersion",Protocol.INSTALLER_VERSION);
             if (node != null) Wearable.getMessageClient(c).sendMessage(node,Protocol.INFO,
                     json.toString().getBytes(StandardCharsets.UTF_8));
             PutDataMapRequest req = PutDataMapRequest.create(Protocol.DATA);

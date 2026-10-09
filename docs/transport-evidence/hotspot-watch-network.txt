@@ -1,0 +1,13 @@
+Wifi is enabled
+Wifi scanning is only available when wifi is enabled
+==== Primary ClientModeManager instance ====
+Wifi is connected to "AndroidAP_3796"
+WifiInfo: SSID: "AndroidAP_3796", BSSID: a2:5a:7a:3e:6d:f3, MAC: 02:15:d2:00:00:00, IP: /192.168.172.233, Security type: 2, Supplicant state: COMPLETED, Wi-Fi standard: 11n, RSSI: -50, Link speed: 6Mbps, Tx Link speed: 6Mbps, Max Supported Tx Link speed: 144Mbps, Rx Link speed: 2Mbps, Max Supported Rx Link speed: 144Mbps, Frequency: 2432MHz, Net ID: 1, Metered hint: true, score: 60, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none>"AndroidAP_3796"wpa2-pskMLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>
+successfulTxPackets: 3846
+successfulTxPacketsPerSecond: 4.27641670400145
+retriedTxPackets: 0
+retriedTxPacketsPerSecond: 0.0
+lostTxPackets: 0
+lostTxPacketsPerSecond: 0.0
+successfulRxPackets: 4945
+successfulRxPacketsPerSecond: 2.643229798465567

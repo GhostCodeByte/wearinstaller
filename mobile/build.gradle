@@ -2,7 +2,7 @@ plugins { id 'com.android.application' }
 android {
  buildFeatures { buildConfig true }
  namespace 'dev.ghostcode.wearinstaller.mobile'; compileSdk 35
- defaultConfig { applicationId 'dev.ghostcode.wearinstaller'; minSdk 30; targetSdk 35; versionCode 2; versionName '1.1.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+ defaultConfig { applicationId 'dev.ghostcode.wearinstaller'; minSdk 30; targetSdk 35; versionCode 3; versionName '1.2.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
  def signingProps = new Properties()
  def propsFile = rootProject.file('signing.properties')
  if (propsFile.exists()) signingProps.load(propsFile.newInputStream())
